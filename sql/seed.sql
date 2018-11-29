@@ -1,31 +1,14 @@
 -- SEED
 -- 	For populating the database
 -- 	with initial data for testing
-
-INSERT INTO `AdUCPEResidences`.`tenants`(`lastname`, `firstname`, `middlename`, `unit_no`, `phone_no`, `email_address`, `provincial_address`)
+use aducperesidences;
+show columns from Employees;
+INSERT INTO `AdUCPEResidences`.`tenants`(`lastname`, `firstname`, `middlename`, `unit_no`, `phone_no`)
 VALUES
-    ('1YFJB', 'dYxaY', '5M7TE', '0101', '1DjSP', 'FXFDx', '4MUmZ'),
-    ('2S7q8', 'FMxR2', 'qbybG', '0102', 'LB42J', 'eyvLB', 'gHRHy'),
-    ('Jv4b6', 'h4BjC', 'YaWZ6', '5019', 'APgfB', 'xaXkE', 'DG11Q'),
-    ('1YFJB', 'dYxaY', '5M7TE', '0101', '1DjSP', 'FXFDx', '4MUmZ'),
-    ('2S7q8', 'FMxR2', 'qbybG', '0102', 'LB42J', 'eyvLB', 'gHRHy'),
-    ('Jv4b6', 'h4BjC', 'YaWZ6', '5019', 'APgfB', 'xaXkE', 'DG11Q'),
-    ('1YFJB', 'dYxaY', '5M7TE', '0101', '1DjSP', 'FXFDx', '4MUmZ'),
-    ('2S7q8', 'FMxR2', 'qbybG', '0102', 'LB42J', 'eyvLB', 'gHRHy'),
-    ('Jv4b6', 'h4BjC', 'YaWZ6', '5019', 'APgfB', 'xaXkE', 'DG11Q'),
-    ('1YFJB', 'dYxaY', '5M7TE', '0101', '1DjSP', 'FXFDx', '4MUmZ'),
-    ('2S7q8', 'FMxR2', 'qbybG', '0102', 'LB42J', 'eyvLB', 'gHRHy'),
-    ('Jv4b6', 'h4BjC', 'YaWZ6', '5019', 'APgfB', 'xaXkE', 'DG11Q'),
-    ('1YFJB', 'dYxaY', '5M7TE', '0101', '1DjSP', 'FXFDx', '4MUmZ'),
-    ('2S7q8', 'FMxR2', 'qbybG', '0102', 'LB42J', 'eyvLB', 'gHRHy'),
-    ('Jv4b6', 'h4BjC', 'YaWZ6', '5019', 'APgfB', 'xaXkE', 'DG11Q'),
-    ('1YFJB', 'dYxaY', '5M7TE', '0101', '1DjSP', 'FXFDx', '4MUmZ'),
-    ('2S7q8', 'FMxR2', 'qbybG', '0102', 'LB42J', 'eyvLB', 'gHRHy'),
-    ('Jv4b6', 'h4BjC', 'YaWZ6', '5019', 'APgfB', 'xaXkE', 'DG11Q'),
-    ('1YFJB', 'dYxaY', '5M7TE', '0101', '1DjSP', 'FXFDx', '4MUmZ'),
-    ('2S7q8', 'FMxR2', 'qbybG', '0102', 'LB42J', 'eyvLB', 'gHRHy'),
-    ('Jv4b6', 'h4BjC', 'YaWZ6', '5019', 'APgfB', 'xaXkE', 'DG11Q'),
-    ('knK7r', 'OUCBg', 'fMFrU', '3901', 'fVZkA', 'YQ3TB', '20sfO');
+    ('Laserna', 'Hustino', 'ChuckNorris', '1111', '09360452366'),
+    ('Laserna', 'Hustino', 'ChuckNorris', '1111', '09360452366'),
+    ('Laserna', 'Hustino', 'ChuckNorris', '1111', '09360452366')
+    ;
 
 
 INSERT INTO `AdUCPEResidences`.`Employees`(`firstname`, `lastname`)
@@ -55,11 +38,11 @@ VALUES
     ('WuP5p', 'iGyjJ');
 INSERT INTO `AdUCPEResidences`.`services` (`service_type`, `service_charge`,`isAccomplished`,`remarks`, tenants_id, employees_id)
 VALUES
-    ('FMxR2', 580, 1, 'LB42J', 1, 22),
-    ('FMxR2', 580, 1, 'LB42J', 6, 2),
-    ('FMxR2', 580, 1, 'LB42J', 7, 19),
-    ('FMxR2', 580, 1, 'LB42J', 2, 3),
-    ('h4BjC', 170, 0, 'APgfB', 3, 3);
+    ('Laundry', 950, 1, 'dry clean only', 8, 3),
+    ('Limousine', 12500, 0, 'with booze pls', 18, 2),
+    ('Housekeeping', 450, 0, 'Change linens', 4, 3),
+    ('Food', 1380, 1, 'Deliver to my unit', 10, 3),
+    ('Massage', 2000, 1, 'extra service', 28, 3);
     
     select * from tenants;
     select * from employees;
