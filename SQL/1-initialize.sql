@@ -1,9 +1,6 @@
--- DROP DATABASE IF EXISTS `AdUCPEResidences`;
--- `` '';
 DROP DATABASE IF EXISTS `AdUCPEResidences`;
 CREATE DATABASE IF NOT EXISTS `AdUCPEResidences`;
 USE `AdUCPEResidences`;
-
 
 CREATE TABLE IF NOT EXISTS `AdUCPEResidences`.`tenants` (
   `id` INT NOT NULL AUTO_INCREMENT,
@@ -14,9 +11,9 @@ CREATE TABLE IF NOT EXISTS `AdUCPEResidences`.`tenants` (
   `phone_no` VARCHAR(45) NULL, /* varchar to be data-safe  */
   `email_address` VARCHAR(100) NULL,
   `provincial_address` VARCHAR(100) NULL,
+  `move_in_date` TIMESTAMP NOT NULL DEFAULT CURRENT_TIMESTAMP, 
   PRIMARY KEY (`id`))
 ENGINE = InnoDB;
-
 
 CREATE TABLE IF NOT EXISTS `AdUCPEResidences`.`pets` (
   `id` INT NOT NULL AUTO_INCREMENT,
@@ -32,12 +29,12 @@ CREATE TABLE IF NOT EXISTS `AdUCPEResidences`.`pets` (
     ON UPDATE NO ACTION)
 ENGINE = InnoDB;
 
-
 CREATE TABLE IF NOT EXISTS `AdUCPEResidences`.`vehicles` (
   `id` INT NOT NULL AUTO_INCREMENT,
-  `vehicle_type` VARCHAR(45) NOT NULL,
+  `car_model` VARCHAR(45) NOT NULL,
   `manufacturer` VARCHAR(45) NULL,
   `plate_number` VARCHAR(45) NOT NULL,
+  `car_seats` INT NOT NULL,
   `tenants_id` INT NOT NULL,
   PRIMARY KEY (`id`),
   INDEX `fk_vehicles_tenants1_idx` (`tenants_id` ASC) VISIBLE,
@@ -47,7 +44,6 @@ CREATE TABLE IF NOT EXISTS `AdUCPEResidences`.`vehicles` (
     ON DELETE NO ACTION
     ON UPDATE NO ACTION)
 ENGINE = InnoDB;
-
 
 CREATE TABLE IF NOT EXISTS `AdUCPEResidences`.`employees` (
   `id` INT NOT NULL AUTO_INCREMENT,
@@ -61,11 +57,11 @@ ENGINE = InnoDB;
 CREATE TABLE IF NOT EXISTS `AdUCPEResidences`.`services` (
   `id` INT NOT NULL AUTO_INCREMENT,
   `service_type` VARCHAR(45) NOT NULL,
-  `service_charge` DECIMAL(10,2) NOT NULL,
-  `isAccomplished` TINYINT NOT NULL,
-  `remarks` VARCHAR(100) NULL,
+  `service_charge` DECIMAL(10,2),
+  `date_requested` TIMESTAMP NOT NULL DEFAULT CURRENT_TIMESTAMP,
+  `isAccomplished` TINYINT NOT NULL DEFAULT '0',
   `tenants_id` INT NOT NULL,
-  `employees_id` INT NOT NULL,
+  `employees_id` INT,
   PRIMARY KEY (`id`, `tenants_id`),
   INDEX `fk_services_tenants_idx` (`tenants_id` ASC) VISIBLE,
   INDEX `fk_services_employees1_idx` (`employees_id` ASC) VISIBLE,
