@@ -60,8 +60,7 @@ CREATE PROCEDURE GetTenant(IN tenantid INT)
 	END IF;
     END$$
 DELIMITER ;
-CALL GetTenant(50);
-CALL GetTenant(0); -- To return all tenants
+-- CALL GetTenant(0); -- To return all tenants
 
 DROP PROCEDURE IF EXISTS GetPets;
 DELIMITER $$
@@ -70,12 +69,13 @@ CREATE PROCEDURE GetPets(IN pet_id INT)
 		SELECT * FROM `AdUCPEResidences`.`pets` WHERE `AdUCPEResidences`.`pets`.id = pet_id;
     END$$
 DELIMITER ;
-CALL GetPets(45);
+-- CALL GetPets(45);
 
 
-
+/* trial to call procedures
 CALL AddTenant('laserna', 'Justine', 'I', '0201', '09053993434', 'hah@paks.bubu', 'kabiteh');
 CALL AddPet('Dog', 'Terrier', 39);
 CALL AddVehicle('Auroa', 'Mezde','NGO-150', 16, 6);
 CALL AddServiceRequest('Housekipping', 49);
 CALL SeeAllTables();
+*/
